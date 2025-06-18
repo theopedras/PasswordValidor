@@ -3,7 +3,7 @@ from password_validator import PasswordValidator
 
 class TestPasswordValidator(unittest.TestCase):
     def setUp(self):
-        self.validator = PasswordValidator(blacklist=['123456', 'password', 'admin'])
+        self.validator = PasswordValidator(blacklist=['Toi1239!', 'password', 'admin'])
 
     def test_valid_password(self):
         result, message = self.validator.validate("StrongP@ss1")
