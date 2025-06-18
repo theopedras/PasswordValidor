@@ -1,4 +1,4 @@
-# Password Validator
+# Password Validation
 
 Este é um validador de senhas configurável, com verificação de:
 
