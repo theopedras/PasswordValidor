@@ -12,6 +12,7 @@ class TestPasswordValidator(unittest.TestCase):
 
     def test_short_password(self):
         result, message = self.validator.validate("Ab1$")
+        # esperamos que a senha seja inválida e a mensagem correta
         self.assertFalse(result)
         self.assertEqual(message, "Password too short")
 
