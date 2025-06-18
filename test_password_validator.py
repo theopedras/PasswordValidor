@@ -3,7 +3,9 @@ from password_validator import PasswordValidator
 
 class TestPasswordValidator(unittest.TestCase):
     def setUp(self):
-        self.validator = PasswordValidator(blacklist=['123456', 'password', 'admin'])
+        self.validator = PasswordValidator(
+            blacklist=['123456', 'password', 'admin', 'Valid@123']
+        )
 
     def test_valid_password(self):
         result, message = self.validator.validate("StrongP@ss1")
@@ -19,7 +21,7 @@ class TestPasswordValidator(unittest.TestCase):
         self.assertEqual(message, "Missing uppercase letter")
 
     def test_blacklisted_password(self):
-        _, message = self.validator.validate("Password")  # P maiúsculo para não cair no erro anterior
+        _, message = self.validator.validate("Valid@123")  # essa senha só falha por estar na blacklist
         self.assertEqual(message, "Password is too common")
 
     def test_missing_special(self):
